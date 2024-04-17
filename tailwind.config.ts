@@ -1,11 +1,14 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
+const {nextui} = require("@nextui-org/react");
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+	"./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -23,7 +26,7 @@ const config: Config = {
         current: "currentColor",
         transparent: "transparent",
         white: "#FFFFFF",
-        black:"#060606", //"#1C2434",
+        black:"#1C2434", //"#1C2434",
         red: "#FB5454",
         "black-2": "#010101",
         body: "#64748B",
@@ -37,8 +40,8 @@ const config: Config = {
         graydark: "#333A48",
         "gray-2": "#F7F9FC",
         "gray-3": "#FAFAFA",
-        whiten: "#EBDFD7", // F1F5F9
-        whiter: "#F2EAE5", //F5F7FD
+        whiten: "#F1F5F9", // EBDFD7
+        whiter: "#F5F7FD", // F2EAE5 
 		white2: "#EBDDD7",
         boxdark: "#24303F",
         "boxdark-2": "#1A222C",
@@ -331,6 +334,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
 export default config;

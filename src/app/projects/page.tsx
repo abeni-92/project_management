@@ -26,7 +26,7 @@ const Projects = () => {
     <DefaultLayout>
       <BodyHeader title="Projects">
         <div className="flex gap-6">
-          <button className="flex items-center gap-2 rounded-md bg-primary p-2 text-white dark:bg-primary dark:text-black">
+          <button className="flex items-center gap-2 rounded-md bg-primary p-2 text-black  dark:text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 fill-current"
@@ -37,8 +37,8 @@ const Projects = () => {
             </svg>
             Create Project
           </button>
-          <div className="text-gray-1 dark:bg-primary-500 flex items-center rounded-md border border-primary dark:text-gray">
-            <p className="bg-primary p-2 text-white dark:text-black">All</p>
+          <div className="text-black flex items-center rounded-md border border-primary cursor-pointer dark:bg-boxdark-2 dark:text-gray">
+            <p className="bg-primary p-2">All</p>
             <p className="p-2">Started</p>
             <p className="p-2">Pending</p>
             <p className="p-2">Completed</p>

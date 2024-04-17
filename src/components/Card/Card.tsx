@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const Card = ({ title, project, employees }) => {
   return (
-    <div className="flex-1 min-w-80 flex sm:max-w-100 flex-col gap-4 rounded-md bg-whiter p-4 md:p-2 text-boxdark-2 shadow-card dark:bg-boxdark dark:text-gray">
+    <div className="flex-1 min-w-80 flex sm:max-w-100 flex-col gap-4 rounded-md bg-whiter p-6 md:p-4 text-boxdark-2 shadow-card dark:bg-boxdark dark:text-gray">
       <p className="text-center">{project}</p>
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">{title}</h2>
         <div className="flex gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 fill-green-300"
+            className="h-5 w-5 fill-green-300 cursor-pointer"
             fill="none"
             viewBox="0 0 512 512"
           >
@@ -17,7 +17,7 @@ const Card = ({ title, project, employees }) => {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 fill-red"
+            className="h-5 w-5 fill-red cursor-pointer"
             fill="none"
             viewBox="0 0 448 512"
           >
@@ -38,14 +38,14 @@ const Card = ({ title, project, employees }) => {
         ))}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className={`h-7 w-7 self-end fill-primary`}
+          className='h-7 w-7 self-end fill-primary cursor-pointer'
           fill="none"
           viewBox="0 0 512 512"
         >
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
         </svg>
       </div>
-      <div className="grid grid-cols-2 border-b border-slate-400 py-4">
+      <div className="grid grid-cols-2 border-b border-slate-400 py-4 mb-4">
         <div className="flex gap-2 py-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,9 +87,9 @@ const Card = ({ title, project, employees }) => {
           <p>12</p>
         </div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-2">
         <p>Progress</p>
-        <div className="flex items-center gap-2 rounded-md bg-[#ddbca6] px-4 py-2 dark:bg-boxdark-2">
+        <div className="flex items-center gap-2 rounded-md bg-slate-200 px-4 py-2 dark:bg-boxdark-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4 fill-graydark dark:fill-white"
@@ -103,7 +103,7 @@ const Card = ({ title, project, employees }) => {
       </div>
       <div className="dark:bg-gray-700 w-full rounded-full bg-white">
         <div
-          className="rounded-full bg-blue-600 p-0.5 text-center text-xs font-medium leading-none text-blue-100"
+          className="rounded-full bg-blue-500 p-0.5 text-center text-xs font-medium leading-none text-blue-100"
           style={{ width: "70%" }}
         >
           {" "}
