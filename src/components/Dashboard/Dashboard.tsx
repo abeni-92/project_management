@@ -171,6 +171,7 @@ const Dashboard: React.FC = () => {
         {/* <MapOne /> */}
         <div className="col-span-12">
           {/* <TableOne /> */}
+		  <h1 className="text-black text-2xl font-semibold py-4 dark:text-white">All Projects</h1>
           <TableAgGrid colDefs={colDef} rowData={rowData} />
         </div>
       </div>

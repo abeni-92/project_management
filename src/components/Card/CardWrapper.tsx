@@ -1,6 +1,6 @@
 const CardWrapper = ({children}) => {
 	return (
-		<div className="flex flex-wrap gap-4 mt-4">
+		<div className="flex flex-wrap gap-8 mt-8">
 			{children}
 		</div>
 	)

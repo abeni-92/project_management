@@ -1,6 +1,6 @@
 import Image from "next/image";
-
-const Card = ({ title, project, employees }) => {
+import Progress from "../Progress";
+const Card = ({ title, project, employees, percent }) => {
   return (
     <div className="flex-1 min-w-80 flex sm:max-w-100 flex-col gap-4 rounded-md bg-whiter p-6 md:p-4 text-boxdark-2 shadow-card dark:bg-boxdark dark:text-gray">
       <p className="text-center">{project}</p>
@@ -101,13 +101,12 @@ const Card = ({ title, project, employees }) => {
           <p>20 Days Left</p>
         </div>
       </div>
-      <div className="dark:bg-gray-700 w-full rounded-full bg-white">
+      <div className="w-full rounded-full bg-white dark:bg-graydark ">
         <div
-          className="rounded-full bg-blue-500 p-0.5 text-center text-xs font-medium leading-none text-blue-100"
-          style={{ width: "70%" }}
+          className="rounded-full bg-blue-500 p-0.5 text-center text-xs font-medium leading-none text-blue-100 "
+          style={{ width: percent }}
         >
-          {" "}
-          70%
+          {percent}
         </div>
       </div>
     </div>
