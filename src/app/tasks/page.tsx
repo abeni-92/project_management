@@ -1,11 +1,16 @@
 "use client";
 
-import CardWrapper from "@/components/Card/CardWrapper";
+import {
+  CardWrapper,
+  GridWrapper,
+  VerticalWrapper,
+} from "@/components/Card/Wrapper";
 import { Card1, Card2, Card3, Card4 } from "@/components/Card/TaskCard";
 import BodyHeader from "@/components/Header/BodyHeader";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Modal } from "@/components/Modal";
 import { useState } from "react";
+import { LucidePlusCircle } from "lucide-react";
 const Tasks = () => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -68,14 +73,7 @@ const Tasks = () => {
                   setOpenModal(true);
                 }}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 fill-current"
-                  fill="none"
-                  viewBox="0 0 448 512"
-                >
-                  <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-                </svg>
+				<LucidePlusCircle />
                 Create Task
               </button>
             </div>
@@ -85,16 +83,29 @@ const Tasks = () => {
             <Card2 />
             <Card3 />
           </CardWrapper>
-          <div className="mt-20">
-            <CardWrapper>
+          <GridWrapper>
+            <VerticalWrapper>
+              <h2 className="text-lg font-semibold text-black">In Progress</h2>
+              <Card4 task="UI/UX Design" priority={"Medium"} />
+              <Card4 task="Pentest" priority={"High"} />
+              <Card4 task="FrontEnd" priority={"Low"} />
+              <Card4 task="UI/UX Design" priority={"Medium"} />
+              <Card4 task="Pentest" priority={"High"} />
+            </VerticalWrapper>
+            <VerticalWrapper>
+              <h2 className="text-lg font-semibold text-black">Needs Review</h2>
+              <Card4 task="Backend" priority={"Medium"} />
               <Card4 task="UI/UX Design" priority={"Medium"} />
               <Card4 task="UI/UX Design" priority={"Medium"} />
+            </VerticalWrapper>
+            <VerticalWrapper>
+              <h2 className="text-lg font-semibold text-black">Completed</h2>
               <Card4 task="UI/UX Design" priority={"Medium"} />
+              <Card4 task="Pentest" priority={"High"} />
+              <Card4 task="FrontEnd" priority={"Low"} />
               <Card4 task="UI/UX Design" priority={"Medium"} />
-              <Card4 task="UI/UX Design" priority={"Medium"} />
-              <Card4 task="UI/UX Design" priority={"Medium"} />
-            </CardWrapper>
-          </div>
+            </VerticalWrapper>
+          </GridWrapper>
         </DefaultLayout>
       </div>
     </div>

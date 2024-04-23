@@ -5,7 +5,6 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
-import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export default function RootLayout({
