@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
     { field: "deadline" },
     { field: "leader" },
     { field: "completion" },
-    { field: "stage" },
+    { field: "priority" },
   ];
   const rowData = [
     {
@@ -24,7 +24,7 @@ const Dashboard: React.FC = () => {
       deadline: "3 months",
       leader: "John Doe",
       completion: 30,
-      stage: "low",
+      priority: "low",
     },
     {
       Title: "Project B",
@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
       deadline: "2 months",
       leader: "Jane Smith",
       completion: 50,
-      stage: "medium",
+      priority: "medium",
     },
     {
       Title: "Project C",
@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
       deadline: "6 months",
       leader: "Michael Johnson",
       completion: 70,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project D",
@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
       deadline: "4 months",
       leader: "Emily Davis",
       completion: 20,
-      stage: "low",
+      priority: "low",
     },
     {
       Title: "Project E",
@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
       deadline: "1 month",
       leader: "David Wilson",
       completion: 90,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project F",
@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
       deadline: "5 months",
       leader: "Sarah Brown",
       completion: 40,
-      stage: "medium",
+      priority: "medium",
     },
     {
       Title: "Project G",
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
       deadline: "3 months",
       leader: "Daniel Martinez",
       completion: 60,
-      stage: "medium",
+      priority: "medium",
     },
     {
       Title: "Project H",
@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
       deadline: "2 months",
       leader: "Olivia Garcia",
       completion: 80,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project I",
@@ -88,7 +88,7 @@ const Dashboard: React.FC = () => {
       deadline: "7 months",
       leader: "James Rodriguez",
       completion: 25,
-      stage: "low",
+      priority: "low",
     },
     {
       Title: "Project J",
@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
       deadline: "4 months",
       leader: "Emma Hernandez",
       completion: 75,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project C",
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
       deadline: "6 months",
       leader: "Michael Johnson",
       completion: 70,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project D",
@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
       deadline: "4 months",
       leader: "Emily Davis",
       completion: 20,
-      stage: "low",
+      priority: "low",
     },
     {
       Title: "Project E",
@@ -120,7 +120,7 @@ const Dashboard: React.FC = () => {
       deadline: "1 month",
       leader: "David Wilson",
       completion: 90,
-      stage: "high",
+      priority: "high",
     },
     {
       Title: "Project F",
@@ -128,7 +128,7 @@ const Dashboard: React.FC = () => {
       deadline: "5 months",
       leader: "Sarah Brown",
       completion: 40,
-      stage: "medium",
+      priority: "medium",
     },
   ];
   return (

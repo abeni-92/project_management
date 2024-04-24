@@ -7,10 +7,10 @@ import {
 } from "@/components/Card/Wrapper";
 import { Card1, Card2, Card3, Card4 } from "@/components/Card/TaskCard";
 import BodyHeader from "@/components/Header/BodyHeader";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Modal } from "@/components/Modal";
 import { useState } from "react";
 import { LucidePlusCircle } from "lucide-react";
+import DefaultLayout from "@/components/Layouts/DefaultLayout";
 const Tasks = () => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -60,7 +60,7 @@ const Tasks = () => {
           isOpen={openModal}
           form={TaskCreateForm}
           onClose={closeModal}
-          create="Task"
+          create="Create New Task"
         />
       )}
       <div className={`${openModal && "pointer-events-none blur"}`}>
@@ -68,12 +68,12 @@ const Tasks = () => {
           <BodyHeader title="Task Management">
             <div className="flex gap-6">
               <button
-                className="flex items-center gap-2 rounded-md bg-primary p-2 text-black  dark:text-white"
+                className="flex items-center gap-2 rounded-md bg-primary p-2 text-black dark:text-gray"
                 onClick={() => {
                   setOpenModal(true);
                 }}
               >
-				<LucidePlusCircle />
+                <LucidePlusCircle />
                 Create Task
               </button>
             </div>
@@ -85,7 +85,7 @@ const Tasks = () => {
           </CardWrapper>
           <GridWrapper>
             <VerticalWrapper>
-              <h2 className="text-lg font-semibold text-black">In Progress</h2>
+              <h2 className="text-lg font-semibold text-black dark:text-white">In Progress</h2>
               <Card4 task="UI/UX Design" priority={"Medium"} />
               <Card4 task="Pentest" priority={"High"} />
               <Card4 task="FrontEnd" priority={"Low"} />
@@ -93,13 +93,13 @@ const Tasks = () => {
               <Card4 task="Pentest" priority={"High"} />
             </VerticalWrapper>
             <VerticalWrapper>
-              <h2 className="text-lg font-semibold text-black">Needs Review</h2>
+              <h2 className="text-lg font-semibold text-black dark:text-white">Needs Review</h2>
               <Card4 task="Backend" priority={"Medium"} />
               <Card4 task="UI/UX Design" priority={"Medium"} />
               <Card4 task="UI/UX Design" priority={"Medium"} />
             </VerticalWrapper>
             <VerticalWrapper>
-              <h2 className="text-lg font-semibold text-black">Completed</h2>
+              <h2 className="text-lg font-semibold text-black dark:text-white">Completed</h2>
               <Card4 task="UI/UX Design" priority={"Medium"} />
               <Card4 task="Pentest" priority={"High"} />
               <Card4 task="FrontEnd" priority={"Low"} />

@@ -1,3 +1,4 @@
+"use client";
 import { notification } from "antd";
 import { LucideX } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -22,7 +23,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
   const openNotification = () => {
     notification.success({
       message: "Form Submitted",
-      description: `New ${create} has been successfully created.`,
+      description: `${create} has been successfully created.`,
       duration: 3,
     });
   };
@@ -57,17 +58,14 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
         {/* Backdrop */}
         <div className="absolute inset-0"></div>
 
-        <div className="modal-content w-[80%] sm:w-auto relative z-50 max-h-[90%] overflow-y-scroll rounded-lg bg-white shadow-lg shadow-black dark:bg-boxdark ">
+        <div className="modal-content relative z-50 max-h-[90%] w-[80%] min-w-100 overflow-y-scroll rounded-lg bg-white shadow-lg shadow-black dark:bg-boxdark sm:w-auto ">
           <div className="sticky top-0 flex justify-between border-b border-slate-400 bg-black p-4 text-white dark:border-slate-600 dark:bg-boxdark-2">
-            <h2 className="font-bold">Create New {create}</h2>
+            <h2 className="font-bold">{create}</h2>
             <button onClick={onClose}>
               <LucideX />
             </button>
           </div>
-          <form
-            className="flex flex-col gap-4 py-8"
-            onSubmit={handleSubmit}
-          >
+          <form className="flex flex-col gap-4 py-8" onSubmit={handleSubmit}>
             {/* Render form fields dynamically based on the form data */}
             {Object.keys(formData).map((fieldName) => (
               <div key={fieldName} className="">
@@ -82,7 +80,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
                       name={fieldName}
                       value={formData[fieldName].value}
                       onChange={handleChange}
-                      className="rounded-md border border-slate-400 p-1 bg-gray-2 dark:border-slate-600 dark:bg-boxdark"
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
                       required
                       multiple={formData[fieldName].multiple}
                     >
@@ -115,7 +113,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
                     <textarea
                       name={fieldName}
                       id={fieldName}
-                      className="rounded-md border border-slate-400 p-1 bg-gray-2 dark:border-slate-600 dark:bg-boxdark"
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
                       placeholder={fieldName}
                     />
                   ) : (
@@ -126,7 +124,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
                       placeholder={fieldName}
                       value={formData[fieldName].value}
                       onChange={handleChange}
-                      className="rounded-md border border-slate-400 p-1 bg-gray-2 dark:border-slate-600 dark:bg-boxdark"
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
                       required
                     />
                   )}

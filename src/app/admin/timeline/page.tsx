@@ -1,9 +1,18 @@
+"use client";
 import BodyHeader from "@/components/Header/BodyHeader";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import { Modal } from "@/components/Modal";
 import { TableAgGrid } from "@/components/Tables/TableAgGrid";
 import { LucidePlusCircle } from "lucide-react";
+import { useState } from "react";
 
 const Timeline = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const closeModal = () => {
+    setOpenModal(false);
+  };
+
   const colDef = [
     { field: "Title" },
     { field: "startDate" },
@@ -127,22 +136,43 @@ const Timeline = () => {
     },
   ];
 
+  const SendSheetForm = {
+    Email: {
+      type: "email",
+    },
+  };
+
   return (
-    <DefaultLayout>
-      <div className="">
-        <BodyHeader title="Projects Timeline">
-          <div className="flex gap-6">
-            <button className="flex items-center gap-2 rounded-md bg-primary p-2 text-black  dark:text-white">
-              <LucidePlusCircle />
-              Send Sheets
-            </button>
+    <div>
+      {openModal && (
+        <Modal
+          isOpen={openModal}
+          form={SendSheetForm}
+          onClose={closeModal}
+          create="Sheets Sent"
+        />
+      )}
+      <div className={`${openModal && "pointer-events-none blur"}`}>
+        <DefaultLayout>
+          <BodyHeader title="Projects Timeline">
+            <div className="flex gap-6">
+              <button
+                className="flex items-center gap-2 rounded-md bg-primary p-2 text-black  dark:text-gray"
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              >
+                <LucidePlusCircle />
+                Send Sheets
+              </button>
+            </div>
+          </BodyHeader>
+          <div className="mt-10">
+            <TableAgGrid colDefs={colDef} rowData={rowData} />
           </div>
-        </BodyHeader>
-        <div className="mt-10">
-          <TableAgGrid colDefs={colDef} rowData={rowData} />
-        </div>
+        </DefaultLayout>
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 

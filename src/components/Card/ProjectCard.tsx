@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Progress from "../Progress";
-const Card = ({ title, project, employees, percent }) => {
+
+export const ProjectCard = ({ title, project, employees, percent }) => {
   return (
-    <div className="flex-1 min-w-80 flex sm:max-w-100 flex-col gap-4 rounded-md bg-whiter p-6 md:p-4 text-boxdark-2 shadow-card dark:bg-boxdark dark:text-gray">
+    <div className="flex-1 flex flex-col min-w-80 gap-4 rounded-md bg-whiter p-6 text-boxdark-2 shadow-card dark:bg-boxdark dark:text-gray md:p-4">
       <p className="text-center">{project}</p>
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">{title}</h2>
         <div className="flex gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 fill-green-300 cursor-pointer"
+            className="h-5 w-5 cursor-pointer fill-green-300"
             fill="none"
             viewBox="0 0 512 512"
           >
@@ -17,7 +18,7 @@ const Card = ({ title, project, employees, percent }) => {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 fill-red cursor-pointer"
+            className="h-5 w-5 cursor-pointer fill-red"
             fill="none"
             viewBox="0 0 448 512"
           >
@@ -38,14 +39,14 @@ const Card = ({ title, project, employees, percent }) => {
         ))}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className='h-7 w-7 self-end fill-primary cursor-pointer'
+          className="h-7 w-7 cursor-pointer self-end fill-primary"
           fill="none"
           viewBox="0 0 512 512"
         >
           <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
         </svg>
       </div>
-      <div className="grid grid-cols-2 border-b border-slate-400 py-4 mb-4">
+      <div className="mb-4 grid grid-cols-2 border-b border-slate-400 py-4">
         <div className="flex gap-2 py-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +88,7 @@ const Card = ({ title, project, employees, percent }) => {
           <p>12</p>
         </div>
       </div>
-      <div className="flex justify-between mb-2">
+      <div className="mb-2 flex justify-between">
         <p>Progress</p>
         <div className="flex items-center gap-2 rounded-md bg-slate-200 px-4 py-2 dark:bg-boxdark-2">
           <svg
@@ -101,16 +102,8 @@ const Card = ({ title, project, employees, percent }) => {
           <p>20 Days Left</p>
         </div>
       </div>
-      <div className="w-full rounded-full bg-white dark:bg-graydark ">
-        <div
-          className="rounded-full bg-blue-500 p-0.5 text-center text-xs font-medium leading-none text-blue-100 "
-          style={{ width: percent }}
-        >
-          {percent}
-        </div>
-      </div>
+      <Progress percent={percent} color={"blue-500"}/>
     </div>
   );
 };
 
-export default Card;

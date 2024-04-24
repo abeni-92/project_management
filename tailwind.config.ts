@@ -42,7 +42,7 @@ const config: Config = {
         "gray-3": "#FAFAFA",
         whiten: "#F1F5F9", // EBDFD7
         whiter: "#F5F7FD", // F2EAE5 
-		white2: "#EBDDD7",
+		    white2: "#EBDDD7",
         boxdark: "#24303F",
         "boxdark-2": "#1A222C",
         strokedark: "#2E3A47",

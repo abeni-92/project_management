@@ -1,6 +1,6 @@
 export const CardWrapper = ({children}) => {
 	return (
-		<div className="flex flex-wrap gap-6 mt-8">
+		<div className="flex flex-wrap items-center gap-6 mt-8">
 			{children}
 		</div>
 	)

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import Dashboard from "../components/Dashboard/Dashboard";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import SignIn from "./auth/signin/page";
 
 export const metadata: Metadata = {
   title: "Next.js Project Management | TailAdmin - Next.js Dashboard Template",
@@ -11,9 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <DefaultLayout>
-        <Dashboard />
-      </DefaultLayout>
+      <SignIn />
     </>
   );
 }
