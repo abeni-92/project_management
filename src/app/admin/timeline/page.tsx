@@ -1,6 +1,5 @@
 "use client";
 import BodyHeader from "@/components/Header/BodyHeader";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Modal } from "@/components/Modal";
 import { TableAgGrid } from "@/components/Tables/TableAgGrid";
 import { LucidePlusCircle } from "lucide-react";
@@ -153,7 +152,7 @@ const Timeline = () => {
         />
       )}
       <div className={`${openModal && "pointer-events-none blur"}`}>
-        <DefaultLayout>
+        {/* <DefaultLayout> */}
           <BodyHeader title="Projects Timeline">
             <div className="flex gap-6">
               <button
@@ -170,7 +169,7 @@ const Timeline = () => {
           <div className="mt-10">
             <TableAgGrid colDefs={colDef} rowData={rowData} />
           </div>
-        </DefaultLayout>
+        {/* </DefaultLayout> */}
       </div>
     </div>
   );

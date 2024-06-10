@@ -1,9 +1,8 @@
 "use client";
 
-import { ProjectCard } from "@/components/Card/ProjectCard";
-import { CardWrapper, GridWrapper } from "@/components/Card/Wrapper";
+import { ProjectCard } from "@/app/_components/Card/ProjectCard";
+import { GridWrapper } from "@/app/_components/Card/Wrapper";
 import BodyHeader from "@/components/Header/BodyHeader";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Modal } from "@/components/Modal";
 import { LucidePlusCircle } from "lucide-react";
 import { useState } from "react";
@@ -79,75 +78,75 @@ const Projects = () => {
         />
       )}
       <div className={`${openModal && "pointer-events-none blur"}`}>
-        <DefaultLayout>
-          <BodyHeader title="Projects">
-            <div className="flex gap-4 text-black dark:text-gray">
-              <button
-                className="flex items-center gap-2 rounded-md bg-primary p-2"
-                onClick={() => {
-                  setOpenModal(true);
-                }}
-              >
-                <LucidePlusCircle />
-                <p>Create Project</p>
-              </button>
-              <select
-                name="project"
-                id="project"
-                className="w-20 rounded-md bg-primary p-2"
-              >
-                <option value="all">All</option>
-                <option value="Started">Started</option>
-                <option value="Pending">Pending</option>
-                <option value="Completed">Completed</option>
-              </select>
-            </div>
-          </BodyHeader>
-          <GridWrapper>
-            <ProjectCard
-              title="UI/UX Design"
-              project="Chat App"
-              employees={employees}
-              percent={"50%"}
-            />
-            <ProjectCard
-              title="Frontend"
-              project="Chat App"
-              employees={employees}
-              percent={"60%"}
-            />
-            <ProjectCard
-              title="BackEnd"
-              project="Chat App"
-              employees={employees}
-              percent={"40%"}
-            />
-            <ProjectCard
-              title="Devops"
-              project="Chat App"
-              employees={employees}
-              percent={"70%"}
-            />
-            <ProjectCard
-              title="Pentest"
-              project="Chat App"
-              employees={employees}
-              percent={"30%"}
-            />
-            <ProjectCard
-              title="UI/UX Design"
-              project="Chat App"
-              employees={employees}
-              percent={"80%"}
-            />
-            <ProjectCard
-              title="UI/UX Design"
-              project="Chat App"
-              employees={employees}
-              percent={"40%"}
-            />
-          </GridWrapper>
-        </DefaultLayout>
+        {/* <DefaultLayout> */}
+        <BodyHeader title="Projects">
+          <div className="flex gap-4 text-black dark:text-gray">
+            <button
+              className="flex items-center gap-2 rounded-md bg-primary p-2"
+              onClick={() => {
+                setOpenModal(true);
+              }}
+            >
+              <LucidePlusCircle />
+              <p>Create Project</p>
+            </button>
+            <select
+              name="project"
+              id="project"
+              className="w-20 rounded-md bg-primary p-2"
+            >
+              <option value="all">All</option>
+              <option value="Started">Started</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </BodyHeader>
+        <GridWrapper>
+          <ProjectCard
+            title="UI/UX Design"
+            project="Chat App"
+            employees={employees}
+            percent={"50%"}
+          />
+          <ProjectCard
+            title="Frontend"
+            project="Chat App"
+            employees={employees}
+            percent={"60%"}
+          />
+          <ProjectCard
+            title="BackEnd"
+            project="Chat App"
+            employees={employees}
+            percent={"40%"}
+          />
+          <ProjectCard
+            title="Devops"
+            project="Chat App"
+            employees={employees}
+            percent={"70%"}
+          />
+          <ProjectCard
+            title="Pentest"
+            project="Chat App"
+            employees={employees}
+            percent={"30%"}
+          />
+          <ProjectCard
+            title="UI/UX Design"
+            project="Chat App"
+            employees={employees}
+            percent={"80%"}
+          />
+          <ProjectCard
+            title="UI/UX Design"
+            project="Chat App"
+            employees={employees}
+            percent={"40%"}
+          />
+        </GridWrapper>
+        {/* </DefaultLayout> */}
       </div>
     </div>
   );

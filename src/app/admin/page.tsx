@@ -1,11 +1,8 @@
-import Dashboard from "@/components/Dashboard/Dashboard";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import Dashboard from "../_components/Dashboard/Dashboard";
 
 const Home = () => {
   return (
-    <DefaultLayout>
       <Dashboard />
-    </DefaultLayout>
   );
 };
 

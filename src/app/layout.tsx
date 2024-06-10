@@ -5,7 +5,7 @@ import "@/css/satoshi.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import DataProvider from "./DataProvider";
 
 export default function RootLayout({
   children,
@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <ThemeProvider>
+        <DataProvider>
           <div className="dark:bg-boxdark-2 dark:text-bodydark">
             {loading ? <Loader /> : children}
           </div>
-        </ThemeProvider>
+        </DataProvider>
       </body>
     </html>
   );

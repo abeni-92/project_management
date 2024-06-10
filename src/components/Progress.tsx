@@ -1,4 +1,4 @@
-const Progress = ({ percent, color }) => {
+const Progress = ({ percent, color }: any) => {
   return (
     <div className="dark:bg-gray-700 w-full rounded-full bg-gray">
       <div

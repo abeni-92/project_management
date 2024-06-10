@@ -1,23 +1,38 @@
-import { useState } from 'react';
-import { notification } from 'antd';
-import { LucideX } from 'lucide-react';
+"use client";
+import { notification } from "antd";
+import { LucideX } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const Modal = ({ isOpen, onClose, form, create }) => {
+const Modal = ({ isOpen, onClose, form, create }: any) => {
   const [formData, setFormData] = useState(form);
+  useEffect(() => {
+    // Add event listener to close modal when clicking outside of it
+    const handleClickOutside = (event: any) => {
+      if (isOpen && event.target.closest(".modal-content") === null) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
 
   const openNotification = () => {
     notification.success({
-      message: 'Form Submitted',
-      description: `New ${create} has been successfully created.`,
+      message: "Form Submitted",
+      description: `${create} has been successfully created.`,
       duration: 3,
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value, type, selectedOptions } = e.target;
-    if (type === 'select-multiple') {
+    if (type === "select-multiple") {
       const selectedValues = Array.from(selectedOptions).map(
-        (option) => option.value
+        (option: any) => option.value,
       );
       setFormData({
         ...formData,
@@ -31,7 +46,7 @@ const Modal = ({ isOpen, onClose, form, create }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     onClose();
     openNotification();
@@ -43,44 +58,44 @@ const Modal = ({ isOpen, onClose, form, create }) => {
         {/* Backdrop */}
         <div className="absolute inset-0"></div>
 
-        <div className="z-50 w-2/5 bg-white shadow-lg shadow-black">
-          <div className="bg-black flex justify-between p-4 text-white border-b border-slate-400">
-            <h2 className="font-bold">Add New {create}</h2>
+        <div className="modal-content relative z-50 max-h-[90%] w-[80%] min-w-100 overflow-y-scroll rounded-lg bg-white shadow-lg shadow-black dark:bg-boxdark sm:w-auto ">
+          <div className="sticky top-0 flex justify-between border-b border-slate-400 bg-black p-4 text-white dark:border-slate-600 dark:bg-boxdark-2">
+            <h2 className="font-bold">{create}</h2>
             <button onClick={onClose}>
               <LucideX />
             </button>
           </div>
-          <form className="flex flex-col gap-4 p-10" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-4 py-8" onSubmit={handleSubmit}>
             {/* Render form fields dynamically based on the form data */}
             {Object.keys(formData).map((fieldName) => (
-              <div key={fieldName}>
+              <div key={fieldName} className="">
                 <label
                   htmlFor={fieldName}
-                  className="flex items-center justify-between text-xl text-black px-6"
+                  className="flex flex-col gap-1 px-6 text-lg text-black dark:text-white"
                 >
                   {fieldName}
-                  {formData[fieldName].type === 'select' ? (
+                  {formData[fieldName].type === "select" ? (
                     <select
                       id={fieldName}
                       name={fieldName}
                       value={formData[fieldName].value}
                       onChange={handleChange}
-                      className="p-1 border border-slate-400 rounded-sm w-2/3"
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
                       required
                       multiple={formData[fieldName].multiple}
                     >
-                      {formData[fieldName].options.map((option) => (
+                      {formData[fieldName].options.map((option: any) => (
                         <option key={option} value={option}>
                           {option}
                         </option>
                       ))}
                     </select>
-                  ) : formData[fieldName].type === 'radio' ? (
+                  ) : formData[fieldName].type === "radio" ? (
                     <div className="flex gap-4">
-                      {formData[fieldName].options.map((option) => (
+                      {formData[fieldName].options.map((option: any) => (
                         <label
                           key={option}
-                          className="flex gap-2 items-center mr-30"
+                          className="mr-30 flex items-center gap-2"
                         >
                           <input
                             type="radio"
@@ -94,14 +109,22 @@ const Modal = ({ isOpen, onClose, form, create }) => {
                         </label>
                       ))}
                     </div>
+                  ) : formData[fieldName].type === "textarea" ? (
+                    <textarea
+                      name={fieldName}
+                      id={fieldName}
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
+                      placeholder={fieldName}
+                    />
                   ) : (
                     <input
                       type={formData[fieldName].type}
                       id={fieldName}
                       name={fieldName}
+                      placeholder={fieldName}
                       value={formData[fieldName].value}
                       onChange={handleChange}
-                      className="p-1 border border-slate-400 rounded-sm w-2/3"
+                      className="rounded-md border border-stroke bg-stroke p-1 dark:border-form-input dark:bg-form-input"
                       required
                     />
                   )}
@@ -110,7 +133,7 @@ const Modal = ({ isOpen, onClose, form, create }) => {
             ))}
             <button
               type="submit"
-              className="w-1/3 self-center bg-blue-300 text-black font-bold p-2 mt-6 rounded-md"
+              className="mt-6 w-1/3 self-center rounded-md bg-blue-300 p-2 font-bold text-black"
             >
               Submit
             </button>

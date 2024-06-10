@@ -1,12 +1,11 @@
 "use client";
 
+import CardDataStats from "@/components/CardDataStats";
+import ChartOne from "@/components/Charts/ChartOne";
+import ChartThree from "@/components/Charts/ChartThree";
+import ChartTwo from "@/components/Charts/ChartTwo";
+import { TableAgGrid } from "@/components/Tables/TableAgGrid";
 import React, { createContext, useState } from "react";
-import ChartOne from "../Charts/ChartOne";
-import ChartThree from "../Charts/ChartThree";
-import ChartTwo from "../Charts/ChartTwo";
-import TableOne from "../Tables/TableOne";
-import CardDataStats from "../CardDataStats";
-import { TableAgGrid } from "../Tables/TableAgGrid";
 
 const Dashboard: React.FC = () => {
   const colDef = [
@@ -171,7 +170,6 @@ const Dashboard: React.FC = () => {
         <ChartThree />
         {/* <MapOne /> */}
         <div className="col-span-12">
-          {/* <TableOne /> */}
 		  <h1 className="text-black text-2xl font-semibold py-4 dark:text-white">All Projects</h1>
           <TableAgGrid colDefs={colDef} rowData={rowData} />
         </div>

@@ -1,5 +1,5 @@
+import Progress from "@/components/Progress";
 import Image from "next/image";
-import Progress from "../Progress";
 
 export const ProjectCard = ({ title, project, employees, percent } : any) => {
   return (

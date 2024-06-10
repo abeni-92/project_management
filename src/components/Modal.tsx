@@ -3,11 +3,11 @@ import { notification } from "antd";
 import { LucideX } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const Modal = ({ isOpen, onClose, form, create }) => {
+export const Modal = ({ isOpen, onClose, form, create }: any) => {
   const [formData, setFormData] = useState(form);
   useEffect(() => {
     // Add event listener to close modal when clicking outside of it
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (isOpen && event.target.closest(".modal-content") === null) {
         onClose();
       }
@@ -28,11 +28,11 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value, type, selectedOptions } = e.target;
     if (type === "select-multiple") {
       const selectedValues = Array.from(selectedOptions).map(
-        (option) => option.value,
+        (option: any) => option.value,
       );
       setFormData({
         ...formData,
@@ -46,7 +46,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     onClose();
     openNotification();
@@ -84,7 +84,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
                       required
                       multiple={formData[fieldName].multiple}
                     >
-                      {formData[fieldName].options.map((option) => (
+                      {formData[fieldName].options.map((option: any) => (
                         <option key={option} value={option}>
                           {option}
                         </option>
@@ -92,7 +92,7 @@ export const Modal = ({ isOpen, onClose, form, create }) => {
                     </select>
                   ) : formData[fieldName].type === "radio" ? (
                     <div className="flex gap-4">
-                      {formData[fieldName].options.map((option) => (
+                      {formData[fieldName].options.map((option: any) => (
                         <label
                           key={option}
                           className="mr-30 flex items-center gap-2"

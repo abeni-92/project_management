@@ -1,16 +1,12 @@
 "use client";
 
-import {
-  CardWrapper,
-  GridWrapper,
-  VerticalWrapper,
-} from "@/components/Card/Wrapper";
-import { Card1, Card2, Card3, Card4 } from "@/components/Card/TaskCard";
 import BodyHeader from "@/components/Header/BodyHeader";
 import { Modal } from "@/components/Modal";
 import { useState } from "react";
 import { LucidePlusCircle } from "lucide-react";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import { CardWrapper, GridWrapper, VerticalWrapper } from "@/app/_components/Card/Wrapper";
+import { Card1, Card2, Card3, Card4 } from "@/app/_components/Card/TaskCard";
+
 const Tasks = () => {
   const [openModal, setOpenModal] = useState(false);
 
@@ -64,7 +60,7 @@ const Tasks = () => {
         />
       )}
       <div className={`${openModal && "pointer-events-none blur"}`}>
-        <DefaultLayout>
+        {/* <DefaultLayout> */}
           <BodyHeader title="Task Management">
             <div className="flex gap-6">
               <button
@@ -106,7 +102,7 @@ const Tasks = () => {
               <Card4 task="UI/UX Design" priority={"Medium"} />
             </VerticalWrapper>
           </GridWrapper>
-        </DefaultLayout>
+        {/* </DefaultLayout> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import {
   LucidePaperclip,
   LucideUser2,
 } from "lucide-react";
-import Progress from "../Progress";
+import Progress from "@/components/Progress";
 
 export const Card1 = () => {
   return (
