@@ -1,5 +1,6 @@
 "use client";
 
+import AuthProvider from "@/lib/context/AuthProvider";
 import { ThemeProvider } from "@/lib/context/ThemeContext";
 
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
@@ -10,10 +11,12 @@ const DataProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <ThemeProvider>
-        <QueryClientProvider client={queryClient}>
-          {children}
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            {children}
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryClientProvider>
+        </AuthProvider>
       </ThemeProvider>
     </>
   );
