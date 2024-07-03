@@ -17,7 +17,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useLocalStorage(
     "color-theme",
-    "light",
+    "dark",
   );
 
   const toggleTheme = () => {
