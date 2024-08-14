@@ -1,8 +1,8 @@
 import React from "react";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { getServerSession } from "next-auth/next";
-import { options } from "../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
+import { options } from "@/pages/api/auth/options";
 
 export default async function ClientLayout({
   children,

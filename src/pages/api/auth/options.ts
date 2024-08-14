@@ -59,8 +59,8 @@ export const options: NextAuthOptions = {
   //     return false;
   //   },
   // },
-    pages: {
-      signIn: "/auth/signin",
-    },
+    // pages: {
+    //   signIn: "/auth/signin",
+    // },
   debug: true,
 };

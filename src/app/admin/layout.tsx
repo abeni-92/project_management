@@ -1,9 +1,8 @@
 import React from "react";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { getServerSession } from "next-auth/next";
-import { options } from "../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
-
+import { options } from "@/pages/api/auth/options";
 export default async function AdminLayout({
   children,
 }: Readonly<{
@@ -12,7 +11,7 @@ export default async function AdminLayout({
   const session = await getServerSession(options)
 
   if (!session) {
-      redirect('/api/auth/signin?callbackUrl=/admin')
+      redirect('/auth/signin?callbackUrl=/admin')
   }
 
   return <DefaultLayout>{children}</DefaultLayout>;
